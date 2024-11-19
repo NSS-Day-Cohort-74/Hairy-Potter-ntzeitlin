@@ -27,7 +27,7 @@ toSellOrNotToSell(firedVase)
 toSellOrNotToSell(firedPlatter)
 
 // Invoke the component function that renders the HTML list
-
-const potteryListHTML = PotteryList(usePottery())
+const finalPotteryArray = usePottery()
+const potteryListHTML = PotteryList(finalPotteryArray)
 const potteryListElement = document.querySelector(".potteryList")
 potteryListElement.innerHTML = potteryListHTML

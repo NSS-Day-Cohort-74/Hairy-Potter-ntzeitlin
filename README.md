@@ -120,12 +120,26 @@ In the `main.js` module, invoke the `PotteryList` component function. Take its r
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Explain how you got the HTML, with the correct data, displayed in the browser?
-   > Your answer here
+   > Overview:
+   > The HTML was generated using a modular serialization process to take an initial pottery Object, filter that Object based on spec parameters, and push acceptable Objects to an array of Objects. That final array of Objects was iterated through and converted into HTML using a forof loop and a template literal. Then, the final HTML string was assigned to the browser's Document Object Model (DOM). I updated the DOM by reassigning the innerHTML property of my target HTML element. I targeted this element by passing in my target element's class as an argument to the .querySelector module of the DOM. 
+
+   > Algorithm: 
+   > -> Import functions from modules
+   > -> create initial objects with makePottery function from the potteryWheel module by passing in three arguments.
+   > ->  add a Boolean cracked property through the firePottery function from the Kiln module. Cracked property is based on second parameter of the function.
+   > -> call toSellOrNotToSell function and pass in pottery Object as argument, check cracked property and add price proptery to object if cracked is false, add uncracked objects to an array 
+   > -> invoke the PotteryList function from the PotteryList module and pass in the object array returned from the usePottery function as an argument.
+   > -> target DOM element and set the innerText to the string returned from the PotteryList function
+
 2. In the **PotteryList** module, when you iterate your pottery, you need to show the evidence of what the **weight** property's value is for the 2nd piece of pottery. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
-   > Paste your video's public URL here
+   > https://www.loom.com/share/2cb3fa8a413f4daea9f229e2a2200e53?sid=b76e1567-354c-46bc-8c33-01adf3fcb0fc
+
 3. The **PotteryWheel** module has a single function named `makePottery`. Why doesn't that module have all of the other code in it?
-   > Your answer here
+   > Modules are built on the idea of task specilization, or the 'single responsibility principle'. Keeping modules to a single responsibility helps with code maintenance and readability. The PotteryWheel module's focus is on creating an initial pottery object, therefore it only contains functions relevant to the inital creation of the object -- in this case a single function. As a contrast, the PotteryCatalogue module manages the final pottery array that will be used to generate HTML. It contains two functions, one to filter and add objects to the array, and another function to export a copy of that array. Although PotteryCatalogue has two functions, both are related to the single responsibility of the module.
+
 4. The pottery shop has learned that there is a set of customers that are willing to buy cracked pottery at a discounted price of $2.50. That means that the cracked pottery should now be displayed in the catalog. Explain the changes that this new business strategy would cause to your algorithm.
-   > Your answer here
+   > I would need to change the toSellOrNotToSell function in the PotteryCatalog module. Currently, the algorithm does not assign a price property for Objects with a cracked property set to True. To account for the changes, I would update the If statement checking for the cracked property on line 4. If it is cracked, instead of returning the object as is, I would assign a price property with a value of 2.50 to the Object. Then, I would move this if statement below the if statements checking for weight, so that if the object is cracked, the price is updated to 2.50 just before being pushed to the array.
+
+
 5. In the **Kiln** module, you have a `firePottery()` function. You need to demonstrate how to use the debugger to verify the values of the parameters for that function when your code runs. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
-   > Paste your video's public URL here
+   > https://www.loom.com/share/f3289f6dcc6b47dc88441231b331e592?sid=146115a0-78d8-43fe-ade5-87080f0bf268
